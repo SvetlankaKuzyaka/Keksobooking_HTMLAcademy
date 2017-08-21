@@ -5,8 +5,8 @@
   var container = document.querySelector('.hotels-list');
 
   hotels.forEach(function(hotel) {
-    var element = getElementFromTemplate(hotel);
-    container.appendChild(element);
+     var element = getElementFromTemplate(hotel);
+     container.appendChild(element);
   });
 
   function getElementFromTemplate(data) {
@@ -25,8 +25,8 @@
     var backgroundImage = new Image();
 
     backgroundImage.onload = function() {
-      clearTimeOut(imageLoadTimeout);
-      element.style.backgroundImage = 'url(\'' + backgroundImage.src + '\')';
+     clearTimeout(imageLoadTimeout);
+     element.style.backgroundImage = 'url(\'' + backgroundImage.src + '\')';
     };
 
     backgroundImage.onerror = function() {
@@ -34,13 +34,14 @@
     };
 
     var IMAGE_TIMEOUT = 10000;
-    var imageLoadTimeout = setTimeOut(function() {
+    var imageLoadTimeout = setTimeout(function() {
       backgroundImage.src = '';
-      element.classList.add('hotel-nophoto');
-    }, IMAGE_TIMEOUT);
+      element.classList.add('hotel-nophoto');},
+      IMAGE_TIMEOUT);
 
     backgroundImage.src = data.preview;
 
     return element;
   }
+
 })();
