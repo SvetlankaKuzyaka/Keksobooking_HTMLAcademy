@@ -12,13 +12,13 @@
   for (var i = 0; i < filters.length; i++) {
     filters[i].onclick = function(evt) {
       var clickedElementID = evt.target.id;
-      alert('Нажали1');
+      var asd = 5;
       setActiveFilter(clickedElementID);
     };
   }
 
   function setActiveFilter(id) {
-    alert('Нажали2');
+      var cvb = 10;
      if (activeFilter === id) {
        return; }
      filters.querySelector('#' + activeFilter).classList.remove('hotel-filter-selected');
