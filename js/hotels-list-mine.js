@@ -14,13 +14,13 @@
       var clickedElementID = evt.target.id;
       setActiveFilter(clickedElementID);
     };
-  }  
+  }
 
   function setActiveFilter(id) {
      if (activeFilter === id) {
        return; }
-     filters.querySelector['#' + activeFilter].classList.remove('hotel-filter-selected');
-     filters.querySelector['#' + id].classList.add('hotel-filter-selected');
+     filters.querySelector('#' + activeFilter).classList.remove('hotel-filter-selected');
+     filters.querySelector('#' + id]).classList.add('hotel-filter-selected');
      var filteredHotels = hotels.slice(0);
      switch (id) {
        case 'filter-expensive':
