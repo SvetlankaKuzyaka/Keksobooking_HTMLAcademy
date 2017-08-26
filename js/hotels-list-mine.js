@@ -6,15 +6,15 @@
   var activeFilter = 'filter-all';
   var hotels = [];
 
+  getHotels();
+
   var filters = document.querySelectorAll('.hotel-filter');
   for (var i = 0; i < filters.length; i++) {
     filters[i].onclick = function(evt) {
       var clickedElementID = evt.target.id;
       setActiveFilter(clickedElementID);
     };
-  }
-
-  getHotels();
+  }  
 
   function setActiveFilter(id) {
      if (activeFilter === id) {
