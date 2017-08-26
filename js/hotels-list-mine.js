@@ -3,8 +3,51 @@
 (function() {
 
   var container = document.querySelector('.hotels-list');
+  var activeFilter = 'filter-all';
+  var hotels = [];
+
+  var filters = document.querySelectorAll('.hotels-filter');
+  for (i = 0; i < filters.length; i++) {
+    filters[i].onclick = function(evt) {
+      var clickedElementID = evt.target.id;
+      setActiveFilter(clickedElementID);
+    };
+  }
 
   getHotels();
+
+  function setActiveFilter(id) {
+     if (activeFilter === id) {
+       return; }
+     filters.querySelector['#' + activeFilter].classList.remove('hotel-filter-selected');
+     filters.querySelector['#' + id].classList.add('hotel-filter-selected');
+     var filteredHotels = hotels.slice(0);
+     switch (id) {
+       case 'filter-expensive':
+         filteredHotels = filteredHotels.sort(function(a, b) {
+           return b.price - a.price;
+         });
+         break;
+       case 'filter-cheap':
+         filteredHotels = filteredHotels.sort(function(a, b) {
+           return a.price - b.price;
+         });
+         break;
+       case 'filter-2stars':
+         filteredHotels = filteredHotels.sort(function(a, b) {
+           return a.price - b.price;
+         }).filter(function(item) {return (item.stars > 2); });
+         break;
+       case 'filter-6rating':
+         filteredHotels = filteredHotels.sort(function(a, b) {
+           return a.price - b.price;
+         }).filter(function(item) {return (item.rating >= 6);  });
+         break;
+       default: break;
+     }
+     renderHotels(filteredHotels);
+     activeFilter = id;
+  }
 
  // hotels.forEach(function(hotel) {
    //  var element = getElementFromTemplate(hotel);
@@ -17,16 +60,20 @@
     xhr.onload = function(evt) {
       var rawData = evt.target.response;
       var loadedHotels = JSON.parse(rawData);
+      hotels = loadedHotels;
       renderHotels(loadedHotels);
    };
    xhr.send();
  }
 
-  function renderHotels(hotels) {
-    hotels.forEach(function(hotel) {
+  function renderHotels(hotelsToRender) {
+    container.innerHTML = '';
+    var fragment = document.createDocumentFragment();
+    hotelsToRender.forEach(function(hotel) {
       var element = getElementFromTemplate(hotel);
-      container.appendChild(element);
+      fragment.appendChild(element);
     });
+    container.appendChild(fragment);
  }
 
   function getElementFromTemplate(data) {
