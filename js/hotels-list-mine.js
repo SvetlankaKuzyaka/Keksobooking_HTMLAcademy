@@ -6,7 +6,7 @@
   var activeFilter = 'filter-all';
   var hotels = [];
 
-  var filters = document.querySelectorAll('.hotels-filter');
+  var filters = document.querySelectorAll('.hotel-filter');
   for (i = 0; i < filters.length; i++) {
     filters[i].onclick = function(evt) {
       var clickedElementID = evt.target.id;
@@ -60,7 +60,7 @@
     xhr.onload = function(evt) {
       var rawData = evt.target.response;
       var loadedHotels = JSON.parse(rawData);
-    //  hotels = loadedHotels;
+      hotels = loadedHotels;
       renderHotels(loadedHotels);
    };
    xhr.send();
@@ -68,13 +68,12 @@
 
   function renderHotels(hotelsToRender) {
     container.innerHTML = '';
-  //  var fragment = document.createDocumentFragment();
+    var fragment = document.createDocumentFragment();
     hotelsToRender.forEach(function(hotel) {
       var element = getElementFromTemplate(hotel);
-    //  fragment.appendChild(element);
-      container.appendChild(element);
+      fragment.appendChild(element);
     });
-  //  container.appendChild(fragment);
+    container.appendChild(fragment);
  }
 
   function getElementFromTemplate(data) {
