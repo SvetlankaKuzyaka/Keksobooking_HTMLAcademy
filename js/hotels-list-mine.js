@@ -4,10 +4,30 @@
 
   var container = document.querySelector('.hotels-list');
 
-  hotels.forEach(function(hotel) {
-     var element = getElementFromTemplate(hotel);
-     container.appendChild(element);
-  });
+  getHotels();
+
+ // hotels.forEach(function(hotel) {
+   //  var element = getElementFromTemplate(hotel);
+   //  container.appendChild(element);
+  //});
+
+  function getHotels() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'data/hotels.json');
+    xhr.onload = function(evt) {
+      var rawData = evt.target.response;
+      var loadedHotels = JSON.parse(rawData);
+      renderHotels(loadedHotels);
+   };
+   xhr.send();
+ }
+
+  function renderHotels(hotels) {
+    hotels.forEach(function(hotel) {
+      var element = getElementFromTemplate(hotel);
+      container.appendChild(element);
+    });
+ }
 
   function getElementFromTemplate(data) {
     var template = document.querySelector('#hotel-template');
