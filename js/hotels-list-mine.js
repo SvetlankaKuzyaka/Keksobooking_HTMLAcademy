@@ -17,6 +17,7 @@
   }
 
   function setActiveFilter(id) {
+    window.alert('Нажали');
      if (activeFilter === id) {
        return; }
      filters.querySelector('#' + activeFilter).classList.remove('hotel-filter-selected');
