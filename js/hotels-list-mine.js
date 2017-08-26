@@ -7,7 +7,7 @@
   var hotels = [];
 
   var filters = document.querySelectorAll('.hotel-filter');
-  for (i = 0; i < filters.length; i++) {
+  for (var i = 0; i < filters.length; i++) {
     filters[i].onclick = function(evt) {
       var clickedElementID = evt.target.id;
       setActiveFilter(clickedElementID);
