@@ -60,7 +60,7 @@
     xhr.onload = function(evt) {
       var rawData = evt.target.response;
       var loadedHotels = JSON.parse(rawData);
-      hotels = loadedHotels;
+    //  hotels = loadedHotels;
       renderHotels(loadedHotels);
    };
    xhr.send();
@@ -68,12 +68,13 @@
 
   function renderHotels(hotelsToRender) {
     container.innerHTML = '';
-    var fragment = document.createDocumentFragment();
+  //  var fragment = document.createDocumentFragment();
     hotelsToRender.forEach(function(hotel) {
       var element = getElementFromTemplate(hotel);
-      fragment.appendChild(element);
+    //  fragment.appendChild(element);
+      container.appendChild(element);
     });
-    container.appendChild(fragment);
+  //  container.appendChild(fragment);
  }
 
   function getElementFromTemplate(data) {
