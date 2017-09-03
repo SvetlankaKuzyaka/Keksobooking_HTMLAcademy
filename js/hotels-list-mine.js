@@ -43,8 +43,8 @@
 
   getHotels();
 
-  function setActiveFilter(id) {
-     if (activeFilter === id) {
+  function setActiveFilter(id, force) {
+     if (activeFilter === id && !force) {
        return; }
      document.querySelector('#' + activeFilter).classList.remove('hotel-filter-selected');
      document.querySelector('#' + id).classList.add('hotel-filter-selected');
@@ -90,7 +90,7 @@
       var loadedHotels = JSON.parse(rawData);
       hotels = loadedHotels;
       //renderHotels(loadedHotels, 0, true);
-      setActiveFilter(activeFilter);
+      setActiveFilter(activeFilter, true);
    };
    xhr.send();
  }
