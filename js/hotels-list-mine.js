@@ -88,11 +88,18 @@
     xhr.onload = function(evt) {
       var rawData = evt.target.response;
       var loadedHotels = JSON.parse(rawData);
-      hotels = loadedHotels;
+      //hotels = loadedHotels;
       //renderHotels(loadedHotels, 0, true);
-      setActiveFilter(activeFilter, true);
+      //setActiveFilter(activeFilter, true);
+      updateLoadedHotels(loadedHotels);
    };
    xhr.send();
+ }
+
+ function updateLoadedHotels(loadedHotels) {
+   hotels = loadedHotels;
+   document.querySelector('.hotels-title-count-number').innerText = hotels.length;   
+   setActiveFilter(activeFilter, true);
  }
 
   function renderHotels(hotelsToRender, pageNumber, replace) {
