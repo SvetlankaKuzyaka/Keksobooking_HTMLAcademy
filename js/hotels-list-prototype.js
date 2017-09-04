@@ -10,7 +10,7 @@
   var filteredHotels = [];
   var currentPage = 0;
   var PAGE_SIZE = 9;
-  var gallery = new Gallery();
+  //var gallery = new Gallery();
 
   var filters = document.querySelector('.hotels-filters');
 
@@ -93,7 +93,7 @@
     if (replace) {
       var renderedElements = container.querySelectorAll('.hotel');
       [].forEach.call(renderedElements, function(el) {
-         el.removeEventListener('click', _onClick);
+      //   el.removeEventListener('click', _onClick);
          container.removeChild(el);
       });
 
@@ -106,14 +106,14 @@
       var hotelElement = new Hotel(hotel);
       hotelElement.render();
       fragment.appendChild(hotelElement.element);
-      hotelElement.element.addEventListener('click', _onClick);
+    //  hotelElement.element.addEventListener('click', _onClick);
     });
     container.appendChild(fragment);
  }
 
-  function _onClick(evt) {
-     evt.preventDefault();
-     gallery.show();
- }
+//  function _onClick(evt) {
+  //   evt.preventDefault();
+  //   gallery.show();
+// }
 
 })();
