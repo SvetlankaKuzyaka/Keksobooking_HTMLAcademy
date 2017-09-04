@@ -94,7 +94,7 @@
       var renderedElements = container.querySelectorAll('.hotel');
       [].forEach.call(renderedElements, function(el) {
          el.removeEventListener('click', _onClick);
-         container.removeChild(el);     
+         container.removeChild(el);
       });
 
     }
