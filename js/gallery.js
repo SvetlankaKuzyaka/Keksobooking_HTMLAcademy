@@ -18,7 +18,7 @@
 
     Gallery.prototype._onCloseClick = function() {
       this.hide();
-   }
+   };
 
    window.Gallery = Gallery;
 
