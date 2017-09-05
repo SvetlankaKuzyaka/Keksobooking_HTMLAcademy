@@ -13,9 +13,9 @@
           this.element = template.children[0].cloneNode(true);
         }
 
-        this.element.querySelector('.hotel-name').textContent = _data.name;
-        this.element.querySelector('.hotel-rating').textContent = _data.rating;
-        this.element.querySelector('.hotel-price-value').textContent = _data.price;
+        this.element.querySelector('.hotel-name').textContent = this._data.name;
+        this.element.querySelector('.hotel-rating').textContent = this._data.rating;
+        this.element.querySelector('.hotel-price-value').textContent = this._data.price;
 
         var backgroundImage = new Image();
 
