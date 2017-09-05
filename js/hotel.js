@@ -31,7 +31,7 @@
         var IMAGE_TIMEOUT = 10000;
         var imageLoadTimeout = setTimeout(function() {
           backgroundImage.src = '';
-          this.element.classList.add('hotel-nophoto');},
+          this.element.classList.add('hotel-nophoto');}.bind(this),
           IMAGE_TIMEOUT);
 
         backgroundImage.src = this._data.preview;
