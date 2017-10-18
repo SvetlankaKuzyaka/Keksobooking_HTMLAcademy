@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "ALS Rubl";
+  src: url(../fonts/rouble.otf) format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -26,17 +33,19 @@ body {
   display: inline-block;
   line-height: 1.2;
   overflow: hidden;
+  position: relative;
   text-indent: -2em;
+  top: -1px;
   vertical-align: middle;
 }
 
 .rouble::after {
-  content: '$';
+  content: 'a';
   font-family: "ALS Rubl";
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 /* Header */
@@ -71,7 +80,8 @@ body {
 /* Big welcome block. */
 .welcome {
   background: #5d93a0 url('../img/welcome-overlay.jpg') no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
+  background-position: center;
   padding: 56px 0 75px;
 }
 
@@ -244,22 +254,17 @@ body {
   padding: 0 10px;
 }
 
-.hotel-filter-active {
-  border-color: #999;
-  box-shadow: 0 0 3px #999, inset 0 0 3px #999;
+.hotel-filter-selected {
+  border-color: #666;
+  cursor: default;
 }
 
 .hotel-filter-reset {
-  border: 0;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   position: absolute;
-  left: 100%;
+  right: 0;
   top: -2em;
-}
-
-.hotel-filter-reset.hotel-filter-active {
-  display: none;
 }
 
 .hotel-filter-reset::after {
@@ -283,24 +288,10 @@ body {
   margin-right: -10px;
 }
 
-.hotels-list-empty {
-  font-size: 14px;
-  text-align: center;
-}
-
-.hotels-list-empty h3 {
-  margin-bottom: 0.2em;
-}
-
-.hotels-list-empty p {
-  margin-top: 0.5em;
-}
-
 /* Singular result */
 .hotel {
   background-color: #e8e5dc;
   background-image: url('../img/hotel-default.jpg');
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 4px;
@@ -454,7 +445,7 @@ body {
   border-radius: 15px;
   display: inline-block;
   height: 30px;
-  margin: 0 5px 0 0;
+  margin: 0;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -496,6 +487,64 @@ body {
   position: absolute;
   right: 9px;
   text-decoration: none;
+}
+
+.gallery-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.gallery-overlay-close {
+  color: #fff;
+  cursor: pointer;
+  font-size: 40px;
+  position: absolute;
+  right: 1ex;
+  text-align: center;
+  top: 0.5ex;
+}
+
+.gallery-overlay-preview {
+  margin-top: 60px;
+  max-height: 600px;
+  min-height: 300px;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.gallery-overlay-controls {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-overlay-control {
+  background: url('../img/control-sprite.png') no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  margin-top: 30px;
+  opacity: 0.3;
+  vertical-align: middle;
+  width: 40px;
+}
+
+.gallery-overlay-control:hover {
+  opacity: 1;
+}
+
+.gallery-overlay-control:active {
+  transform: translate(0, 1px);
+}
+
+.gallery-overlay-control-right {
+  background-position: -40px 0;
 }
 
 footer {
@@ -578,93 +627,4 @@ footer .center-wrapper {
 
 .footer-social-item-vk:hover {
   background-position: -78px -26px;
-}
-
-.overlays {
-  position: absolute;
-  z-index: 2;
-}
-
-.gallery {
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  left: 0;
-  overflow: auto;
-  position: fixed;
-  text-align: center;
-  top: 0;
-  width: 100%;
-}
-
-.gallery-close {
-  color: #fff;
-  cursor: pointer;
-  font-size: 3em;
-  position: absolute;
-  right: 0.5ex;
-  top: 0;
-  user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-}
-
-.gallery-picture {
-  height: 400px;
-  margin: 20px auto;
-}
-
-.gallery-thumbnails-container {
-  color: #fff;
-  display: inline-block;
-  margin: 0 auto;
-  max-width: 90%;
-  position: relative;
-}
-
-.gallery-thumbnails {
-  overflow: auto;
-  padding: 10px;
-  white-space: nowrap;
-}
-
-.gallery-thumbnails-image {
-  cursor: pointer;
-  height: 70px;
-  margin-right: 10px;
-}
-
-.gallery-thumbnails-image.active {
-  outline: solid 5px #fff;
-  cursor: default;
-}
-
-.gallery-thumbnails-control {
-  background: url('../img/control-sprite.png');
-  cursor: pointer;
-  height: 40px;
-  margin-top: -20px;
-  opacity: 0.3;
-  overflow: hidden;
-  position: absolute;
-  top: 50%;
-  width: 40px;
-}
-
-.gallery-thumbnails-control:hover,
-.gallery-thumbnails-control:active {
-  opacity: 1;
-}
-
-.gallery-thumbnails-control-prev {
-  left: -60px;
-}
-
-.gallery-thumbnails-control-next {
-  background-position: -40px 0;
-  left: 100%;
-  margin-left: 10px;
 }

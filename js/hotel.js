@@ -2,6 +2,7 @@
 
    var Hotel = function(data) {
       this._data = data;
+      this._onClick = this._onClick.bind(this);
    }
 
    Hotel.prototype.render = function () {
@@ -35,7 +36,23 @@
           IMAGE_TIMEOUT);
 
         backgroundImage.src = this._data.preview;
+
+        this.element.addEventListener('click', this._onClick);
    };
+
+   Hotel.prototype.remove = function() {
+      this.element.removeEventListener('click', this._onClick);
+   };
+
+   Hotel.prototype._onClick = function(evt) {
+      if (evt.element.classList.contains('hotel') && !this.element.classList.contains('hotel-nophoto')) {
+        if (typeof this.onClick === 'function') {
+           this.onClick();
+        }
+      }
+   };
+
+   Hotel.prototype.onClick = null;
 
    window.Hotel = Hotel;
 
