@@ -87,6 +87,7 @@
 
   function renderHotels(hotelsToRender, pageNumber, replace) {
     if (replace) {
+      var el;
       while ((el = renderedElements.shift())) {
          container.removeChild(el.element);
          el.onClick = null;
