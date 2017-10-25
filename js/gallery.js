@@ -18,7 +18,7 @@
          picture.height = 40;
          picture.src = pic;
          this.thumbnailsContainer.appendChild(picture);
-      });
+      }).bind(this);
       this.setCurrentImage(0);
       this._closeButton.addEventListener('click', this._onCloseClick);
    };
