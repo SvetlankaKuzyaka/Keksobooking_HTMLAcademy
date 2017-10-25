@@ -45,7 +45,7 @@
    };
 
    Hotel.prototype._onClick = function(evt) {
-      if (evt.target.element.classList.contains('hotel') && !this.element.classList.contains('hotel-nophoto')) {
+      if (evt.target.classList.contains('hotel') && !this.element.classList.contains('hotel-nophoto')) {
         if (typeof this.onClick === 'function') {
            this.onClick();
         }
