@@ -28,6 +28,7 @@
       this.data.pictures.forEach(function() {
          this.thumbnailsContainer.removeChild(this.thumbnailsContainer.firstChild);
       }, this);
+      this.previewImage.src = '';
       this._closeButton.removeEventListener('click', this._onCloseClick);
    };
 
