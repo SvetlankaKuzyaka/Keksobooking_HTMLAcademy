@@ -28,8 +28,7 @@
       this.element.classList.add('hidden');
       this.data.pictures.forEach(function() {
          this.thumbnailsContainer.removeChild(this.thumbnailsContainer.firstChild);
-      }, this);
-      this.previewImage.src = '';
+      }, this);      
       this._closeButton.removeEventListener('click', this._onCloseClick);
    };
 
