@@ -20,6 +20,7 @@
          this.thumbnailsContainer.appendChild(picture);
       }, this);      
       this.setCurrentImage(0);
+      this.previewImage.src = this.data.pictures[0];
       this._closeButton.addEventListener('click', this._onCloseClick);
    };
 
