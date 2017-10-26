@@ -26,7 +26,7 @@
    Gallery.prototype.hide = function() {
       this.element.classList.add('hidden');
       this.data.pictures.forEach(function() {
-         this.thumbnailsContainer.removeChild(this.thumbnailsContainer.childNodes);
+         this.thumbnailsContainer.removeChild(this.thumbnailsContainer.firstChild);
       }, this);
       this._closeButton.removeEventListener('click', this._onCloseClick);
    };
