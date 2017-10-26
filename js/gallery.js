@@ -18,16 +18,16 @@
          picture.classList.add('gallery-thumbnails-image');
          picture.height = 40;
          picture.src = pic;
-         fragment.appendChild(picture);
+         this.fragment.appendChild(picture);
       }, this);
-      this.thumbnailsContainer.appendChild(fragment);
+      this.thumbnailsContainer.appendChild(this.fragment);
       this.setCurrentImage(0);
       this._closeButton.addEventListener('click', this._onCloseClick);
    };
 
    Gallery.prototype.hide = function() {
       this.element.classList.add('hidden');
-      this.thumbnailsContainer.removeChild(fragment);
+      this.thumbnailsContainer.removeChild(this.fragment);
       this._closeButton.removeEventListener('click', this._onCloseClick);
    };
 
