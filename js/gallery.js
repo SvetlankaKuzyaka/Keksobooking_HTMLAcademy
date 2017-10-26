@@ -6,8 +6,7 @@
       this._onCloseClick = this._onCloseClick.bind(this);
       var _currentImage = 0;
       this.thumbnailsContainer = this.element.querySelector('.gallery-thumbnails');
-      this.previewImage = this.element.querySelector('.gallery-picture');
-      this.fragment = document.createDocumentFragment();
+      this.previewImage = this.element.querySelector('.gallery-picture');      
    }
 
    Gallery.prototype.show = function() {
@@ -18,16 +17,17 @@
          picture.classList.add('gallery-thumbnails-image');
          picture.height = 40;
          picture.src = pic;
-         this.fragment.appendChild(picture);
-      }, this);
-      this.thumbnailsContainer.appendChild(this.fragment);
+         this.thumbnailsContainer.appendChild(picture);
+      }, this);      
       this.setCurrentImage(0);
       this._closeButton.addEventListener('click', this._onCloseClick);
    };
 
    Gallery.prototype.hide = function() {
       this.element.classList.add('hidden');
-      this.thumbnailsContainer.removeChild(this.fragment);
+      this.data.pictures.forEach(function() {
+         this.thumbnailsContainer.removeChild(this.thumbnailsContainer.childNodes);
+      }, this);
       this._closeButton.removeEventListener('click', this._onCloseClick);
    };
 
