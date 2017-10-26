@@ -7,6 +7,7 @@
       var _currentImage = 0;
       this.thumbnailsContainer = this.element.querySelector('.gallery-thumbnails');
       this.previewImage = this.element.querySelector('.gallery-picture');
+      var fragment = document.createDocumentFragment();
    }
 
    Gallery.prototype.show = function() {
@@ -17,14 +18,16 @@
          picture.classList.add('gallery-thumbnails-image');
          picture.height = 40;
          picture.src = pic;
-         this.thumbnailsContainer.appendChild(picture);
+         fragment.appendChild(picture);
       }, this);
+      this.thumbnailsContainer.appendChild(fragment);
       this.setCurrentImage(0);
       this._closeButton.addEventListener('click', this._onCloseClick);
    };
 
    Gallery.prototype.hide = function() {
       this.element.classList.add('hidden');
+      this.thumbnailsContainer.removeChild(fragment);
       this._closeButton.removeEventListener('click', this._onCloseClick);
    };
 
