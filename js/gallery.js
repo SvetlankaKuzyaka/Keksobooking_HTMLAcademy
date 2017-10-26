@@ -7,7 +7,7 @@
       var _currentImage = 0;
       this.thumbnailsContainer = this.element.querySelector('.gallery-thumbnails');
       this.previewImage = this.element.querySelector('.gallery-picture');
-      var fragment = document.createDocumentFragment();
+      this.fragment = document.createDocumentFragment();
    }
 
    Gallery.prototype.show = function() {
