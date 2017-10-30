@@ -23,7 +23,7 @@
         var amenities = '';
         this._data.amenities.forEach(function(el) {
            amenities += amenities + '<li>' + el + '</li>';
-        });
+        }, this);
         this.element.querySelector('.hotel-amenities').innerHtml += amenities;
 
         var backgroundImage = new Image();
