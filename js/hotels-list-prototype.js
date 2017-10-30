@@ -48,19 +48,29 @@
      switch (id) {
        case 'expensive-first':
          filteredHotels = filteredHotels.sort(function(a, b) {
-           return b.price - a.price;
+           return b.getPrice() - a.getPrice();
          });
          break;
        case 'stars':
          filteredHotels = filteredHotels.sort(function(a, b) {
-           return a.price - b.price;
+           return a.getPrice() - b.getPrice();
          }).filter(function(item) {return (item.stars > 2); });
          break;
        case 'min-rating':
          filteredHotels = filteredHotels.sort(function(a, b) {
-           return a.price - b.price;
+           return a.getPrice() - b.getPrice();
          }).filter(function(item) {return (item.rating >= 6);  });
          break;
+       case 'distance':
+          filteredHotels = filteredHotels.sort(function(a, b) {
+            return a.getPrice() - b.getPrice();
+         }).filter(function(item) {return (item.distance <= 4);  });
+          break;
+       case 'favorites':
+          filteredHotels = filteredHotels.sort(function(a, b) {
+            return a.getPrice() - b.getPrice();
+          }).filter(function(item) {return (item.distance <= 4);  });
+          break;
        default: break;
      }
      currentPage = 0;
@@ -74,7 +84,11 @@
     xhr.onload = function(evt) {
       var rawData = evt.target.response;
       var loadedHotels = JSON.parse(rawData);
+      loadedHotels = loadedHotels.map(function(hotel) {
+         return new HotelData(hotel);
+      });
       updateLoadedHotels(loadedHotels);
+
    };
    xhr.send();
  }
@@ -99,15 +113,16 @@
     var to = from + PAGE_SIZE;
     var pageHotels = hotelsToRender.slice(from, to);
     renderedElements = renderedElements.concat(pageHotels.map(function(hotel) {
-      var hotelElement = new Hotel(hotel);
+      var hotelElement = new Hotel();
+      hotelElement.setData(hotel);
       hotelElement.render();
       fragment.appendChild(hotelElement.element);
       hotelElement.onClick = function() {
-         gallery.data = hotelElement._data;
-         gallery.show();
+         gallery.setData(hotelElement.getData());
+         gallery.render();
       };
       return hotelElement;
    }));
    container.appendChild(fragment);
- }  
+ }
 })();

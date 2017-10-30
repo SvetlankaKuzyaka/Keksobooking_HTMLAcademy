@@ -72,6 +72,7 @@ body {
 .welcome {
   background: #5d93a0 url('../img/welcome-overlay.jpg') no-repeat;
   background-size: auto 100%;
+  background-position: center;
   padding: 56px 0 75px;
 }
 
@@ -100,7 +101,7 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 27px 20px 25px;
-  width: 800px;
+  width: 850px;
 }
 
 .searchform-group {
@@ -263,9 +264,10 @@ body {
 }
 
 .hotel-filter-reset::after {
-  border: solid 1px #b3b3ac;
+  border: solid 1px red;
   border-radius: 2px;
   content: '×';
+  color: red;
   cursor: pointer;
   display: inline-block;
   font-size: 22px;

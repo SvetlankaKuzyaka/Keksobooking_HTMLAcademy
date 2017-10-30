@@ -1,9 +1,10 @@
 (function() {
 
-   var Hotel = function(data) {
-      this._data = data;
+   var Hotel = function() {
       this._onClick = this._onClick.bind(this);
    }
+
+   Hotel.prototype = new HotelBase();
 
    Hotel.prototype.render = function () {
         var template = document.querySelector('#hotel-template');
@@ -16,7 +17,14 @@
 
         this.element.querySelector('.hotel-name').textContent = this._data.name;
         this.element.querySelector('.hotel-rating').textContent = this._data.rating;
+        this.element.querySelector('.hotel-stars').textContent = this._data.stars;
+        this.element.querySelector('.hotel-distance-kilometers').textContent = this._data.distance;
         this.element.querySelector('.hotel-price-value').textContent = this._data.price;
+        var amenities = '';
+        this._data.amenities.forEach(function(el) {
+           amenities += amenities + '<li>' + el + '</li>';
+        });
+        this.element.querySelector('.hotel-amenities').innerHtml += amenities;
 
         var backgroundImage = new Image();
 
