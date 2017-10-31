@@ -15,13 +15,13 @@
           this.element = template.children[0].cloneNode(true);
         }
 
-        this.element.querySelector('.hotel-name').textContent = this._data.name;
-        this.element.querySelector('.hotel-rating').textContent = this._data.rating;
-        this.element.querySelector('.hotel-stars').textContent = this._data.stars;
-        this.element.querySelector('.hotel-distance-kilometers').textContent = this._data.distance;
-        this.element.querySelector('.hotel-price-value').textContent = this._data.price;
+        this.element.querySelector('.hotel-name').textContent = this.getName();
+        this.element.querySelector('.hotel-rating').textContent = this.getRating();
+        this.element.querySelector('.hotel-stars').textContent = this.getStars();
+        this.element.querySelector('.hotel-distance-kilometers').textContent = this.getDistance();
+        this.element.querySelector('.hotel-price-value').textContent = this.getPrice();
         var amenities = '';
-        this._data.amenities.forEach(function(el) {
+        this.getAmenities().forEach(function(el) {
            amenities += amenities + '<li>' + el + '</li>';
         }, this);
         this.element.querySelector('.hotel-amenities').innerHtml += amenities;
@@ -43,7 +43,7 @@
           this.element.classList.add('hotel-nophoto');}.bind(this),
           IMAGE_TIMEOUT);
 
-        backgroundImage.src = this._data.preview;
+        backgroundImage.src = this.getPreview();
 
         this.element.addEventListener('click', this._onClick);
    };
