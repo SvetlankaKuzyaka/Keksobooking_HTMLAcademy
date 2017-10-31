@@ -28,6 +28,9 @@
    HotelData.prototype.getAmenities = function() {
       return this.params.amenities;
    };
+   HotelData.prototype.getPreview = function() {
+      return this.params.preview;
+   };
 
    window.HotelData = HotelData;
 
