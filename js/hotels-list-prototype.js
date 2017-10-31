@@ -65,12 +65,7 @@
           filteredHotels = filteredHotels.sort(function(a, b) {
             return a.getPrice() - b.getPrice();
          }).filter(function(item) {return (item.distance <= 4);  });
-          break;
-       case 'favorites':
-          filteredHotels = filteredHotels.sort(function(a, b) {
-            return a.getPrice() - b.getPrice();
-          }).filter(function(item) {return (item.distance <= 4);  });
-          break;
+          break;       
        default: break;
      }
      currentPage = 0;
