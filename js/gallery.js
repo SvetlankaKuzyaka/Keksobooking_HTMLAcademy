@@ -17,7 +17,7 @@
 
    Gallery.prototype.render = function() {
       this.element.classList.remove('hidden');
-      this.getData().pictures.forEach(function(pic, i) {
+      this._data.getPictures().forEach(function(pic, i) {
          var picture = new Image();
          picture.classList.add('gallery-thumbnails-image');
          picture.height = 40;
@@ -32,7 +32,7 @@
 
    Gallery.prototype.remove = function() {
       this.element.classList.add('hidden');
-      this.getData().pictures.forEach(function() {
+      this._data.getPictures().forEach(function() {
          this.thumbnailsContainer.removeChild(this.thumbnailsContainer.firstChild);
       }, this);
       this.previewImage.src = '';
@@ -54,7 +54,7 @@
   };
 
   Gallery.prototype._onNextButton = function() {
-    if (this._currentImage === (this.getData().pictures.length - 1)) {      
+    if (this._currentImage === (this._data.getPictures().length - 1)) {      
       return;
     }
     var i = this._currentImage + 1;
@@ -69,14 +69,14 @@
       if (this._currentImage === 0) {
         this._prevButton.style.opacity = 0.3;
       }
-      if (this._currentImage === (this.getData().pictures.length - 1)) {
+      if (this._currentImage === (this._data.getPictures().length - 1)) {
        this._nextButton.style.opacity = 0.3;
       }
       if (this.element.querySelector('.gallery-thumbnails-image.active')) {
          this.element.querySelector('.gallery-thumbnails-image.active').classList.remove('active');
       }
       this.element.querySelectorAll('.gallery-thumbnails-image')[i].classList.add('active');
-      this.previewImage.src = this.getData().pictures[i];
+      this.previewImage.src = this._data.getPictures()[i];
    };
 
    window.Gallery = Gallery;
