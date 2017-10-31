@@ -68,16 +68,16 @@
       }
       this._currentImage = i;
       if (this._currentImage === 0) {
-        this._prevButton.style.opacity = 0.3;
+        this._prevButton.disabled = true;
       }
       if (this._currentImage === (this._data.getPictures().length - 1)) {
-       this._nextButton.style.opacity = 0.3;
+       this._nextButton.disabled = true;
       }
       if (this.element.querySelector('.gallery-thumbnails-image.active')) {
          this.element.querySelector('.gallery-thumbnails-image.active').classList.remove('active');
-      }
-      this.element.querySelectorAll('.gallery-thumbnails-image')[i].classList.add('active');
+      }      
       this.previewImage.src = this._data.getPictures()[i];
+      this.element.querySelectorAll('.gallery-thumbnails-image')[i].classList.add('active');
    };
 
    window.Gallery = Gallery;
