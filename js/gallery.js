@@ -27,7 +27,7 @@
       this.setCurrentImage(0);
       this._closeButton.addEventListener('click', this._onCloseClick);
       this._prevButton.addEventListener('click', this._onPrevButton);
-      this.__nextButton.addEventListener('click', this._onNextButton);
+      this._nextButton.addEventListener('click', this._onNextButton);
    };
 
    Gallery.prototype.remove = function() {
