@@ -36,6 +36,7 @@
          this.thumbnailsContainer.removeChild(this.thumbnailsContainer.firstChild);
       }, this);
       this.previewImage.src = '';
+      this._currentImage = null;
       this._closeButton.removeEventListener('click', this._onCloseClick);
       this._prevButton.removeEventListener('click', this._onPrevButton);
       this._nextButton.removeEventListener('click', this._onNextButton);
