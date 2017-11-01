@@ -656,8 +656,13 @@ footer .center-wrapper {
   width: 40px;
 }
 
-.gallery-thumbnails-control:hover,
-.gallery-thumbnails-control:active {
+.gallery-thumbnails-control-prev:hover:not(.no-hover),
+.gallery-thumbnails-control-prev:active:not(.no-hover) {
+  opacity: 1;
+}
+
+.gallery-thumbnails-control-next:hover:not(.no-hover),
+.gallery-thumbnails-control-next:active:not(.no-hover) {
   opacity: 1;
 }
 
