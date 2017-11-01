@@ -69,9 +69,11 @@
       this._currentImage = i;
       if (this._currentImage === 0) {
         this._prevButton.disabled = true;
+        this._prevButton.classList.add('no-hover');
       }
       if (this._currentImage === (this._data.getPictures().length - 1)) {
        this._nextButton.disabled = true;
+       this._nextButton.classList.add('no-hover');
       }
       if (this.element.querySelector('.gallery-thumbnails-image.active')) {
          this.element.querySelector('.gallery-thumbnails-image.active').classList.remove('active');
