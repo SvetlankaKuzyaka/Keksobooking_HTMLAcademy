@@ -70,11 +70,17 @@
       if (this._currentImage === 0) {
         this._prevButton.disabled = true;
         this._prevButton.classList.add('no-hover');
-      }
+     } else {
+        this._prevButton.disabled = false;
+        this._prevButton.classList.remove('no-hover');
+     }
       if (this._currentImage === (this._data.getPictures().length - 1)) {
        this._nextButton.disabled = true;
        this._nextButton.classList.add('no-hover');
-      }
+     } else {
+      this._nextButton.disabled = false;
+      this._nextButton.classList.remove('no-hover');
+     }
       if (this.element.querySelector('.gallery-thumbnails-image.active')) {
          this.element.querySelector('.gallery-thumbnails-image.active').classList.remove('active');
       }      
