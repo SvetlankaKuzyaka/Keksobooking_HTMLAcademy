@@ -1,4 +1,7 @@
-(function() {
+define([
+   'hotel-base',
+   'hotel-data'
+], (function(HotelBase, HotelData) {
 
    var Gallery = function() {
       this.element = document.querySelector('.gallery');
@@ -86,8 +89,6 @@
       }      
       this.previewImage.src = this._data.getPictures()[i];
       this.element.querySelectorAll('.gallery-thumbnails-image')[i].classList.add('active');
-   };
+   };  
 
-   window.Gallery = Gallery;
-
-})();
+}));
