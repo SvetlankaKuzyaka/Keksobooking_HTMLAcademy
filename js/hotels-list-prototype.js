@@ -2,7 +2,16 @@
 
 'use strict';
 
-(function() {
+requirejs.config({
+   baseUrl: 'js';
+});
+
+define([
+   'hotel',
+   'gallery',
+   'hotel-data',
+   'form-validation-mine'
+], (function(Hotel, Gallery, HotelData) {
 
   var container = document.querySelector('.hotels-list');
   var activeFilter = localStorage.getItem('activeFilter') || 'all';
@@ -121,4 +130,4 @@
    }));
    container.appendChild(fragment);
  }
-})();
+}));
