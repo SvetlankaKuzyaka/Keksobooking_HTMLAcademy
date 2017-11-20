@@ -5,7 +5,7 @@
 (function() {
 
   var container = document.querySelector('.hotels-list');
-  var activeFilter = localStorage.getItem('filter') || 'all';
+  var activeFilter = localStorage.getItem('activeFilter') || 'all';
   var hotels = [];
   var filteredHotels = [];
   var renderedElements = [];
