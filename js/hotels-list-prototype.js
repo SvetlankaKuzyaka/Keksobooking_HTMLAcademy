@@ -5,7 +5,7 @@
 (function() {
 
   var container = document.querySelector('.hotels-list');
-  var activeFilter = 'all';
+  var activeFilter = localStorage.getItem('filter') || 'all';
   var hotels = [];
   var filteredHotels = [];
   var renderedElements = [];
@@ -54,23 +54,24 @@
        case 'stars':
          filteredHotels = filteredHotels.sort(function(a, b) {
            return a.getPrice() - b.getPrice();
-         }).filter(function(item) {return (item.stars > 2); });
+         }).filter(function(item) {return (item.getStars() > 2); });
          break;
        case 'min-rating':
          filteredHotels = filteredHotels.sort(function(a, b) {
            return a.getPrice() - b.getPrice();
-         }).filter(function(item) {return (item.rating >= 6);  });
+         }).filter(function(item) {return (item.getRating() >= 6);  });
          break;
        case 'distance':
           filteredHotels = filteredHotels.sort(function(a, b) {
             return a.getPrice() - b.getPrice();
-         }).filter(function(item) {return (item.distance <= 4);  });
+         }).filter(function(item) {return (item.getDistance() <= 4);  });
           break;       
        default: break;
      }
      currentPage = 0;
      renderHotels(filteredHotels, currentPage, true);
      activeFilter = id;
+     localStorage.setItem('activeFilter', id);
   }
 
   function getHotels() {
