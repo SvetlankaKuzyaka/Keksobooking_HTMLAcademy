@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+define([], (function() {
   var guests = document.querySelector('#searchform-guests-number');
   var rooms = document.querySelector('#searchform-guests-rooms');
   var formElement = document.forms['searchform'];
@@ -31,4 +31,4 @@
     document.cookie = 'rooms=' + rooms.value + ';expires=' + formattedDateToExpire;
     formElement.submit();
   }
-})();
+}));
