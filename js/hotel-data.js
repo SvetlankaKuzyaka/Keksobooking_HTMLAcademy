@@ -1,4 +1,4 @@
-(function() {
+define([], (function() {
 
    var HotelData = function(data) {
       this.params = data;
@@ -30,8 +30,6 @@
    };
    HotelData.prototype.getPreview = function() {
       return this.params.preview;
-   };
+   };   
 
-   window.HotelData = HotelData;
-
-})();
+}));
