@@ -1,4 +1,7 @@
-(function() {
+define([
+   'hotel-base',
+   'hotel-data'
+], (function(HotelBase, HotelData) {
 
    var Hotel = function() {
       this._onClick = this._onClick.bind(this);
@@ -59,8 +62,6 @@
       }
    };
 
-   Hotel.prototype.onClick = null;
+   Hotel.prototype.onClick = null;  
 
-   window.Hotel = Hotel;
-
-})();
+}));
