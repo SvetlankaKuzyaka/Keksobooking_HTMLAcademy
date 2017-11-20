@@ -1,4 +1,4 @@
-(function() {
+define([], (function() {
 
    var HotelBase = function() {};
 
@@ -14,8 +14,6 @@
 
    HotelBase.prototype.getData = function() {
       return this._data;
-   };
+   };   
 
-   window.HotelBase = HotelBase;
-
-})();
+}));
