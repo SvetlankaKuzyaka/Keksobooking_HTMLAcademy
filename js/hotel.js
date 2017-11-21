@@ -1,7 +1,7 @@
 define([
    'hotel-base',
    'hotel-data'
-], (function(HotelBase, HotelData) {
+], function(HotelBase, HotelData) {
 
    var Hotel = function() {
       this._onClick = this._onClick.bind(this);
@@ -62,6 +62,8 @@ define([
       }
    };
 
-   Hotel.prototype.onClick = null;  
+   Hotel.prototype.onClick = null;
+  
+   return Hotel;
 
-}));
+});
