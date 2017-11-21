@@ -11,7 +11,7 @@ define([
    'gallery',
    'hotel-data',
    'form-validation-mine'
-], (function(Hotel, Gallery, HotelData) {
+], function(Hotel, Gallery, HotelData) {
 
   var container = document.querySelector('.hotels-list');
   var activeFilter = localStorage.getItem('activeFilter') || 'all';
@@ -130,4 +130,4 @@ define([
    }));
    container.appendChild(fragment);
  }
-}));
+});
