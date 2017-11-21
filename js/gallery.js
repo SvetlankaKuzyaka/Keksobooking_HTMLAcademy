@@ -1,7 +1,7 @@
 define([
    'hotel-base',
    'hotel-data'
-], (function(HotelBase, HotelData) {
+], function(HotelBase, HotelData) {
 
    var Gallery = function() {
       this.element = document.querySelector('.gallery');
@@ -89,6 +89,8 @@ define([
       }      
       this.previewImage.src = this._data.getPictures()[i];
       this.element.querySelectorAll('.gallery-thumbnails-image')[i].classList.add('active');
-   };  
+   }; 
+  
+  return Gallery;
 
-}));
+});
