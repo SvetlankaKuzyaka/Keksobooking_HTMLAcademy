@@ -1,4 +1,4 @@
-define([], (function() {
+define(function() {
 
    var HotelBase = function() {};
 
@@ -14,6 +14,8 @@ define([], (function() {
 
    HotelBase.prototype.getData = function() {
       return this._data;
-   };   
+   }; 
+  
+  return HotelBase;
 
-}));
+});
