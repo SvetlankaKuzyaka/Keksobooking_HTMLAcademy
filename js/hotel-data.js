@@ -1,4 +1,4 @@
-define([], (function() {
+define(function() {
 
    var HotelData = function(data) {
       this.params = data;
@@ -30,6 +30,8 @@ define([], (function() {
    };
    HotelData.prototype.getPreview = function() {
       return this.params.preview;
-   };   
+   };
+  
+  return HotelData;
 
-}));
+});
