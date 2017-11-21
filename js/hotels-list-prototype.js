@@ -3,7 +3,7 @@
 'use strict';
 
 requirejs.config({
-   baseUrl: 'js';
+   baseUrl: 'js'
 });
 
 define([
